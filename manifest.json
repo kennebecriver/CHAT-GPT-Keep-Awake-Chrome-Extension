@@ -1,0 +1,19 @@
+{
+  "name": "CHAT-GPT-Keep-Awake",
+  "version": "1.1",
+  "description": "This is a Chrome extension that sends a request to https://chat.openai.com/backend-api/conversation every 50 seconds to prevent constantly asking for a Cloudflare check. The script runs automatically when a tab with https://chat.openai.com/ is open in the browser.",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "CHAT-GPT-Keep-Awake"
+  },
+  "host_permissions": ["https://chat.openai.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "tabs",
+    "background",
+    "scripting", "alarms"
+  ]
+}
