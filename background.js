@@ -19,7 +19,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     }
 });
 
-chrome.alarms.onAlarm.addListener((alarm) => {
+chrome.alarms.onAlarm.addListener(alarm => {
     if (alarm.name !== "reloadTab") return
     chrome.tabs.query({url: "https://chat.openai.com/*"}, tabs => {
         if (!tabs.length) return
@@ -31,5 +31,4 @@ chrome.alarms.onAlarm.addListener((alarm) => {
         });
         chrome.alarms.create("reloadTab", { delayInMinutes: 0.8 });
     })
-    }
 });
